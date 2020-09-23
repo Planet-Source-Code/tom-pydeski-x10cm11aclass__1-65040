@@ -1,0 +1,52 @@
+===============
+X-10 Technology Transmission Theory  
+--------------------------------------------------------------------------------
+X-10 communicates between transmitters and receivers by sending a receiving signals over the power line wiring. These signals involve short RF bursts which represent digital information.  
+--------------------------------------------------------------------------------
+X-10 transmissions are synchronized to the zero crossing point of the AC power line. The goal should be to transmit as close to the zero crossing point as possible, but certainly within 200 microseconds of the zero crossing point. The PL513 and TW523 provide a 60 Hz square wave with a maximum delay of 100 탎ec from the zero crossing point of the AC power line. The maximum delay between signal envelope input and 120 kHz output bursts is 50 탎ec. Therefore, it should be arranged that outputs to the PL513 and TW523 be within 50 탎 of this 60 Hz zero crossing reference square wave. 
+ 
+A Binary 1 is represented by a 1 millisecond burst of 120 kHz at the zero crossing point, and a Binary 0 by the absence of 120 kHz. The PL513 and TW523 modulate their inputs (from the O.E.M.) with 120 kHz, therefore only the 1 ms "envelope" need be applied to their inputs. These 1 millisecond bursts should equally be transmitted three times to coincide with the zero crossing point of all three phases in a three phase distribution system. Figure 1 shows the timing relationship of these bursts relative to zero crossing. 
+ 
+A complete code transmission encompasses eleven cycles of the power line. The first two cycles represent a Start Code. The next four cycles represent the House Code and the last five cycles represent either the Number Code (1 thru 16) or a Function Code (On, Off, etc.). This complete block, (Start Code, House Code, Key Code) should always be transmitted in groups of 2 with 3 power line cycles between each group of 2 codes. Bright and dim are exceptions to this rule and should be transmitted continuously (at least twice) with no gaps between codes. See Figure 2.
+.  
+Within each block of data, each four or five bit code should be transmitted in true compliment form on alternate half cycles of the power line. I.E. if a 1 millisecond burst of signal is transmitted on one half cycle (binary 1) then no signal should be transmitted on the next cycle, (binary 0). See Figure 3.
+
+The Tables in Figure 4 show the binary codes to be transmitted for each House Code and Key Code. The Start Code is always 1110 which is a unique code and is the only code which does not follow the true complimentary relationship on alternate half cycles. 
+. 
+[1] Hail Request is transmitted to see if there are any X-10 transmitters within listening range. This allows the O.E.M. to assign a different Housecode if a "Hail Acknowledge" is received. 
+[2] In a Pre-Set Dim instruction, the D8 bit represents the Most Significant Bit of the level and H1, H2, H4 and H8 bits represent the Least Significant Bits.
+
+[3] The Extended Data code is followed by 8 bit bytes which can represent Analog Data (after A to D conversion). There should be no gaps between the Extended Data code and the actual data, and no gaps between data bytes. The first 8 bit byte can be used to say how many bytes of data will follow. If gaps are left between data bytes, these codes could be received by X-10 modules causing erroneous operation.
+
+Extended Code is similar to Extended Data: 8 Bit bytes which follow Extended Code (with no gaps) can represent additional codes. This allows the designer to expand beyond the 256 codes presently available. 
+
+--------------------------------------------------------------------------------
+ 
+NOTE 1. X-10 Receiver Modules require a "silence" of at least 3 power cycles between each pair of 11 bit code transmissions (no gaps between each pair). The one exception to this rule is bright and dim codes. These are transmitted continuously with no gaps between each 11 bit dim code or 11 bit bright code. A 3 cycle gap is necessary between different codes, i.e. between bright and dim, or 1 and dim, or on and bright, etc. 
+NOTE 2. The TW523 Two-Way Power Line Interface cannot receive Extended Code or Extended Data because these codes have no gaps between them. The TW523 can only receive standard "pairs" of 11 bit X-10 codes with 3 power line cycle gaps between each pair. 
+
+NOTE 3. The TW523 can receive dim and bright codes but the output will represent the first dim or bright code received, followed by every third code received. i.e. the output from the TW523 will not be a continuous stream of dim and bright codes like the codes which are transmitted. 
+--------------------------------------------------------------------------------
+A Square wave representing zero crossing detect is provided by the PL513/TW523 and is within 100 탎 of the zero crossing point of the AC power line. The output signal envelope from the O.E.M. should be within 50 탎 of this zero crossing detect. The signal envelope should be 1 ms (-50탎 +100탎). See Figure 5. 
+ 
+Opto-Coupled 60 Hz reference output (from the PL513/TW523) 
+ 
+Transmissions are to be synchronized to the zero crossing point of the AC power line and should be as close to true zero crossing as possible. The PL513 and TW523 are designed to be interfaced to other microprocessor circuitry which outputs X-10 codes synchronized to the zero crossing point of the AC power line. It is therefore necessary to provide a zero crossing reference for the O.E.M. microprocessor. 
+It is likely that this microprocessor will have its own "isolated" power supply. It is necessary to maintain this isolation, therefore the trigger circuit normally used in X-10 POWERHOUSE controllers is not desirable as this would reference the O.E.M. power supply to the AC power line. It is also not desirable to take the trigger from the secondary side of the power supply transformer as some phase shift is likely to occur. It is therefore necessary to provide an opto-coupled 60 Hz reference. 
+
+An opto-coupled 60 Hz square wave is provided at the output of the PL513 and TW523. X-10 codes generated by the O.E.M. product are to be synchronized to this zero crossing reference. The X-10 code envelope generated by the O.E.M. is applied to the PL513 or TW523 which modulates the envelope with 120 kHz and capacitively couples it to the AC power line.
+
+
+Opto-Coupled Signal Input (to the PL513/TW523)
+The input signal required from the O.E.M. product is the signal "envelope" of the X-10 code format, i.e.
+
+High for 1 ms. coincident with zero crossing represents a binary "1" and gates the 120 kHz oscillator through to the output drive circuit thus transmitting 120 kHz onto the AC power line for 1 ms. 
+
+Low for 1 ms. coincident with the zero crossing point represents a binary "0" and turns the 120 kHz oscillator/output circuit off for the duration of the 1 ms. input. 
+
+ 
+Opto-Coupled Signal Output (from the TW523) 
+ 
+The "X-10 received" output from the TW523 coincides with the second half of each X-10 transmission. This output is the envelope of the bursts of 120 kHz received. Only the envelope corresponding to the first burst of each group of 3 bursts is available at the output of the TW523. See Figures 6, 7 and 8. 
+. 
+ 
