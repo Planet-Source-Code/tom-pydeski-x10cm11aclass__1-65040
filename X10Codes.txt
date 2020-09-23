@@ -1,0 +1,228 @@
+'HouseDeviceBinary 
+'A	1	0110	6
+'B	2	1110	E
+'C	3	0010	2
+'D	4	1010	A
+'E	5	0001	1
+'F	6	1001	9
+'G	7	0101	5
+'H	8	1101	D
+'I	9	0111	7
+'J	10	1111	F
+'K	11	0011	3
+'L	12	1011	B
+'M	13	0000	0
+'N	14	1000	8
+'O	15	0100	4
+'P	16	1100	C
+'
+'Function		Binary
+'All Units Off	0000
+'All Lights On	0001
+'On			0010
+'Off			0011
+'Dim			0100
+'Bright		0101
+'All Lights Off	0110
+'Extended Code	0111
+'Hail Request	1000
+'Hail Acknowledg	1001
+'Pre-set Dim (1)	1010
+'Pre-set Dim (2)	1011
+'Extended Transfer1100
+'Status On		1101	
+'Status Off		1110
+'Status Request	1111
+
+=================================
+below for house code A
+Off Code
+c
+Dec = 6 99 
+Hex = 6 63 
+Bin = 0000 0110  0110 0011 
+			^^   ^^
+		   HouseA  Off
+On Code
+b
+Dec = 6 98 
+Hex = 6 62 
+Bin = 0000 0110  0110 0010 
+			^^   ^^
+		   HouseA  On
+
+==============================================
+
+House Code A - Device Code 1
+f
+Dec = 4 102 
+Hex = 4 66 
+Bin = 0000 0100  0110 0110 
+
+House Code A - Device Code 2
+n
+Dec = 4 110 
+Hex = 4 6E 
+Bin = 0000 0100  0110 1110 
+
+House Code A - Device Code 3
+b
+Dec = 4 98 
+Hex = 4 62 
+Bin = 0000 0100  0110 0010 
+
+House Code A - Device Code 4
+j
+Dec = 4 106 
+Hex = 4 6A 
+Bin = 0000 0100  0110 1010 
+
+House Code A - Device Code 5
+a
+Dec = 4 97 
+Hex = 4 61 
+Bin = 0000 0100  0110 0001 
+
+House Code A - Device Code 6
+i
+Dec = 4 105 
+Hex = 4 69 
+Bin = 0000 0100  0110 1001 
+
+House Code A - Device Code 7
+e
+Dec = 4 101 
+Hex = 4 65 
+Bin = 0000 0100  0110 0101 
+
+House Code A - Device Code 8
+m
+Dec = 4 109 
+Hex = 4 6D 
+Bin = 0000 0100  0110 1101 
+
+House Code A - Device Code 9
+g
+Dec = 4 103 
+Hex = 4 67 
+Bin = 0000 0100  0110 0111 
+
+House Code A - Device Code 10
+o
+Dec = 4 111 
+Hex = 4 6F 
+Bin = 0000 0100  0110 1111 
+
+House Code A - Device Code 11
+c
+Dec = 4 99 
+Hex = 4 63 
+Bin = 0000 0100  0110 0011 
+
+House Code A - Device Code 12
+k
+Dec = 4 107 
+Hex = 4 6B 
+Bin = 0000 0100  0110 1011 
+
+House Code A - Device Code 13
+`
+Dec = 4 96 
+Hex = 4 60 
+Bin = 0000 0100  0110 0000 
+
+House Code A - Device Code 14
+h
+Dec = 4 104 
+Hex = 4 68 
+Bin = 0000 0100  0110 1000 
+
+House Code A - Device Code 15
+d
+Dec = 4 100 
+Hex = 4 64 
+Bin = 0000 0100  0110 0100 
+
+=========================
+
+House Code A - Device Code 1
+f
+Dec = 4 102 
+Hex = 4 66 
+Bin = 0000 0100  0110 0110 
+
+House Code B - Device Code 1
+æ
+Dec = 4 230 
+Hex = 4 E6 
+Bin = 0000 0100  1110 0110 
+
+â
+Dec = 6 226 
+Hex = 6 E2 
+Bin = 0000 0110  1110 0010 
+			^^   ^^
+		   HouseB  On
+
+ã
+Dec = 6 227 
+Hex = 6 E3 
+Bin = 0000 0110  1110 0011 
+			^^   ^^
+		   HouseB  Off
+
+
+=========================
+Brightness Codes
+
+3%
+¦d
+Dec = 166 100 
+Hex = A6 64 
+Bin = 1010 0110  0110 0100 
+(dim 3%)
+d
+Dec = 22 100 
+Hex = 16 64 
+Bin = 0001 0110  0110 0100 
+
+
+6%
+e
+Dec = 22 101 
+Hex = 16 65 
+Bin = 0001 0110  0110 0101 
+(dim)
+žd
+Dec = 158 100 
+Hex = 9E 64 
+Bin = 1001 1110  0110 0100 
+
+9%
+e
+Dec = 22 101 
+Hex = 16 65 
+Bin = 0001 0110  0110 0101 
+(dim)
+–d
+Dec = 150 100 
+Hex = 96 64 
+Bin = 1001 0110  0110 0100 
+
+(dim)
+
+(dim)
+
+(dim)
+
+(dim)
+
+
+
+
+
+
+
+
+
+
